@@ -1,9 +1,11 @@
 import Image from 'next/image';
 import { UploadButton } from './components/UploadButton';
+import { HiddenTweetLink } from './components/HiddenTweetLink';
 
 export default function Home() {
   return (
     <main className="flex flex-col flex-1 items-center justify-between lg:p-24">
+      <HiddenTweetLink />
       <div className="relative overflow-hidden lg:py-24">
         {/* Gradients */}
         <div
@@ -46,7 +48,7 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="hero-footer" className="flex w-full">
+      <div id="hero-footer" className="container max-w-screen-2xl flex w-full">
         <Image
           src="/unevaluated.png"
           alt="this is unevaluated data"
