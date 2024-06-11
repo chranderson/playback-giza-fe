@@ -34,7 +34,7 @@ export default function Home() {
               {/* Buttons */}
               <div className="mt-12 flex flex-col items-center gap-4">
                 <Button
-                  className="flex flex-nowrap justify-center gap-4"
+                  className="flex flex-nowrap justify-center gap-4 font-bold"
                   size={'lg'}
                   variant="destructive"
                 >

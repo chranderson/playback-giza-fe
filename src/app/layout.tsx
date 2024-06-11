@@ -2,8 +2,9 @@ import type { Metadata } from 'next';
 import { Inter as FontSans } from 'next/font/google';
 import { cn } from '@/lib/utils';
 import './globals.css';
+import '@rainbow-me/rainbowkit/styles.css';
 import { Header } from '@/components/ui/header';
-import { UploadIcon } from 'lucide-react';
+import { Providers } from './providers';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -28,8 +29,12 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <Header />
-        {children}
+        <Providers>
+          <>
+            <Header />
+            {children}
+          </>
+        </Providers>
       </body>
     </html>
   );
