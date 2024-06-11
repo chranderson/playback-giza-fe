@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 const RedactedImageList = () => {
   return (
-    <div className="flex flex-row gap-4 h-max">
+    <div className="flex flex-row w-full overflow-x-auto gap-4 h-max">
       <Image
         className="aspect-video"
         src="/tenor.gif"
