@@ -3,11 +3,11 @@
 import { Button } from '@/components/ui/button';
 import { UploadIcon } from 'lucide-react';
 
-const UploadButton = () => {
+const UploadButton = ({ onClick }: { onClick?: () => void }) => {
   return (
     <Button
       className="flex flex-nowrap justify-center gap-4 font-bold"
-      // onClick={() => alert('action is WIP')}
+      onClick={onClick}
       size={'lg'}
       variant="destructive"
     >

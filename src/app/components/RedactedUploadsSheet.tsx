@@ -17,7 +17,7 @@ import { CheckIcon } from 'lucide-react';
 const RedactedUploadsSheet = () => {
   return (
     <Sheet>
-      <SheetTrigger>
+      <SheetTrigger asChild>
         <UploadButton />
       </SheetTrigger>
       <SheetContent side="bottom">
