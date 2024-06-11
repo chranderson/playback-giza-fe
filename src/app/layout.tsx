@@ -5,6 +5,7 @@ import './globals.css';
 import '@rainbow-me/rainbowkit/styles.css';
 import { Header } from '@/components/ui/header';
 import { Providers } from './providers';
+import { SecretConsoleMessage } from '@/components/ui/secretConsoleMessage';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -35,6 +36,7 @@ export default function RootLayout({
             {children}
           </>
         </Providers>
+        <SecretConsoleMessage />
       </body>
     </html>
   );
