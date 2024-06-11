@@ -12,7 +12,7 @@ const UploadButton = () => {
       variant="destructive"
     >
       <UploadIcon className=" h-6 w-6" />
-      Upload Video
+      Secure & Upload Video
     </Button>
   );
 };
