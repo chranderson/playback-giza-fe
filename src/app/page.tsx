@@ -1,6 +1,5 @@
 import Image from 'next/image';
-import { Button } from '@/components/ui/button';
-import { UploadIcon } from 'lucide-react';
+import { UploadButton } from './components/UploadButton';
 
 export default function Home() {
   return (
@@ -33,14 +32,7 @@ export default function Home() {
 
               {/* Buttons */}
               <div className="mt-12 flex flex-col items-center gap-4">
-                <Button
-                  className="flex flex-nowrap justify-center gap-4 font-bold"
-                  size={'lg'}
-                  variant="destructive"
-                >
-                  <UploadIcon className=" h-6 w-6" />
-                  Upload Video
-                </Button>
+                <UploadButton />
                 <Image
                   className="mx-auto -translate-x-6"
                   src="/sanitized-copy.png"
