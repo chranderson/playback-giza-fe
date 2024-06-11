@@ -1,6 +1,7 @@
 import Image from 'next/image';
-import { UploadButton } from './components/UploadButton';
+// import { UploadButton } from './components/UploadButton';
 import { HiddenTweetLink } from './components/HiddenTweetLink';
+import { RedactedUploadsSheet } from './components/RedactedUploadsSheet';
 
 export default function Home() {
   return (
@@ -34,7 +35,8 @@ export default function Home() {
 
               {/* Buttons */}
               <div className="mt-12 flex flex-col items-center gap-4">
-                <UploadButton />
+                {/* <UploadButton /> */}
+                <RedactedUploadsSheet />
                 <Image
                   className="mx-auto -translate-x-6"
                   src="/sanitized-copy.png"

@@ -7,7 +7,7 @@ const UploadButton = () => {
   return (
     <Button
       className="flex flex-nowrap justify-center gap-4 font-bold"
-      onClick={() => alert('action is WIP')}
+      // onClick={() => alert('action is WIP')}
       size={'lg'}
       variant="destructive"
     >
