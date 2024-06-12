@@ -6,6 +6,7 @@ import '@rainbow-me/rainbowkit/styles.css';
 import { Header } from '@/components/ui/header';
 import { Providers } from './providers';
 import { SecretConsoleMessage } from '@/components/ui/secretConsoleMessage';
+import Image from 'next/image';
 
 const fontSans = FontSans({
   subsets: ['latin'],
@@ -31,10 +32,21 @@ export default function RootLayout({
         )}
       >
         <Providers>
-          <>
+          <div className="min-h-screen flex flex-col">
             <Header />
             {children}
-          </>
+            <div
+              id="hero-footer"
+              className="container max-w-screen-2xl flex w-full mb-12"
+            >
+              <Image
+                src="/unevaluated.png"
+                alt="this is unevaluated data"
+                width={197}
+                height={16}
+              />
+            </div>
+          </div>
         </Providers>
         <SecretConsoleMessage />
       </body>

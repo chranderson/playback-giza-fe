@@ -9,7 +9,9 @@ const SubmissionWallet = () => {
       <p>
         Wallet Address to receive tokens:{' '}
         <span className="font-bold" title={address}>
-          {address ? formatWalletAddressForDisplay({ address }) : 'uknown'}
+          {address
+            ? formatWalletAddressForDisplay({ address })
+            : 'Please connect wallet'}
         </span>
       </p>
     </div>

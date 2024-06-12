@@ -1,10 +1,13 @@
+'use client';
+
 import Image from 'next/image';
-// import { UploadButton } from './components/UploadButton';
 import { HiddenTweetLink } from './components/HiddenTweetLink';
-// import { RedactedUploadsSheet } from './components/RedactedUploadsSheet';
 import { UploadDrawer } from './components/UploadDrawer';
+import { useSubmitToGiza } from './hooks/useSubmitToGiza';
+import { Button } from '@/components/ui/button';
 
 export default function Home() {
+  const mutation = useSubmitToGiza();
   return (
     <main className="flex flex-col flex-1 items-center justify-between lg:p-24">
       <HiddenTweetLink />
@@ -36,9 +39,34 @@ export default function Home() {
 
               {/* Buttons */}
               <div className="mt-12 flex flex-col items-center gap-4">
-                {/* <UploadButton /> */}
-                {/* <RedactedUploadsSheet /> */}
-                <UploadDrawer />
+                <div className="min-h-16 flex flex-col gap-4 items-center">
+                  {mutation.isIdle && !mutation.isError && (
+                    <UploadDrawer onConfirm={mutation.mutateAsync} />
+                  )}
+                  {mutation.isPending && (
+                    <h2 className="animate-pulse font-bold text-xl text-red-500">
+                      Submitting to Giza...
+                    </h2>
+                  )}
+
+                  {mutation.isError && (
+                    <>
+                      <h2 className="font-bold text-xl text-red-500">
+                        Error! {mutation.error.message}
+                      </h2>
+
+                      <Button
+                        className="animate-pulse"
+                        onClick={mutation.reset}
+                        size="lg"
+                        variant="destructive"
+                      >
+                        Try again
+                      </Button>
+                    </>
+                  )}
+                </div>
+
                 <Image
                   className="mx-auto -translate-x-6"
                   src="/sanitized-copy.png"
@@ -52,15 +80,6 @@ export default function Home() {
           </div>
         </div>
       </div>
-      <div id="hero-footer" className="container max-w-screen-2xl flex w-full">
-        <Image
-          src="/unevaluated.png"
-          alt="this is unevaluated data"
-          width={197}
-          height={16}
-        />
-      </div>
-      {/* End Hero */}
     </main>
   );
 }

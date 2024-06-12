@@ -17,7 +17,7 @@ import { RedactedImageList } from './RedactedImageList';
 import { SubmissionWallet } from './SubmissionWallet';
 import { CheckIcon } from 'lucide-react';
 
-const UploadDrawer = () => {
+const UploadDrawer = ({ onConfirm }: { onConfirm: () => void }) => {
   return (
     <Drawer>
       <DrawerTrigger asChild>
@@ -36,20 +36,17 @@ const UploadDrawer = () => {
           <RedactedImageList />
         </div>
         <DrawerFooter>
-          <div className="flex items-end justify-end">
-            <Button
-              size="lg"
-              className="bg-black w-max"
-              // variant="destructive"
-              onClick={() => alert('submit to giza')}
-            >
+          <div className="flex items-end justify-end gap-4">
+            <DrawerClose asChild>
+              <Button size="lg" variant="outline">
+                Cancel
+              </Button>
+            </DrawerClose>
+            <Button size="lg" className="bg-black w-max" onClick={onConfirm}>
               <CheckIcon className="h-6 w-6 mr-2" />
               Confirm
             </Button>
           </div>
-          {/* <DrawerClose>
-            <Button variant="outline">Cancel</Button>
-          </DrawerClose> */}
         </DrawerFooter>
       </DrawerContent>
     </Drawer>
