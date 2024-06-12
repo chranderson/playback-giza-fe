@@ -27,8 +27,7 @@ const UploadDrawer = ({ onConfirm }: { onConfirm: () => void }) => {
         <DrawerHeader>
           <DrawerTitle>Please confirm</DrawerTitle>
           <DrawerDescription>
-            If you proceed, you will be signing your soul to the devil. Are you
-            sure you want to proceed?
+            Share the latest gizatech blog post on twitter.
           </DrawerDescription>
         </DrawerHeader>
         <div className="flex flex-col gap-4 pt-4 px-4">
