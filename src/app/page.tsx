@@ -5,9 +5,12 @@ import { HiddenTweetLink } from './components/HiddenTweetLink';
 import { UploadDrawer } from './components/UploadDrawer';
 import { useSubmitToGiza } from './hooks/useSubmitToGiza';
 import { Button } from '@/components/ui/button';
+import { ConnectButton } from '@rainbow-me/rainbowkit';
+import { useAccount } from 'wagmi';
 
 export default function Home() {
   const mutation = useSubmitToGiza();
+  const { isConnected } = useAccount();
   return (
     <main className="flex flex-col flex-1 items-center justify-between lg:p-24">
       <HiddenTweetLink />
@@ -40,7 +43,8 @@ export default function Home() {
               {/* Buttons */}
               <div className="mt-12 flex flex-col items-center gap-4">
                 <div className="min-h-16 flex flex-col gap-4 items-center">
-                  {mutation.isIdle && !mutation.isError && (
+                  {!isConnected && <ConnectButton />}
+                  {isConnected && mutation.isIdle && !mutation.isError && (
                     <UploadDrawer onConfirm={mutation.mutateAsync} />
                   )}
                   {mutation.isPending && (
